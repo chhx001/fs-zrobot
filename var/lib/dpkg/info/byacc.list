@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/share
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/byacc.1.gz
+/usr/share/doc
+/usr/share/doc/byacc
+/usr/share/doc/byacc/NOTES
+/usr/share/doc/byacc/copyright
+/usr/share/doc/byacc/NEW_FEATURES
+/usr/share/doc/byacc/ACKNOWLEDGEMENTS
+/usr/share/doc/byacc/README
+/usr/share/doc/byacc/changelog.Debian.gz
+/usr/share/doc/byacc/README.Debian
+/usr/bin
+/usr/bin/byacc

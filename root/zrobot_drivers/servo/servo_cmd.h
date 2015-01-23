@@ -1,0 +1,9 @@
+#ifndef SERVO_CMD_H_INCLUDED
+#define SERVO_CMD_H_INCLUDED
+
+#define SERVO_MAGIC 's'
+#define SERVO0_SET _IOW(SERVO_MAGIC,1,int)
+#define SERVO1_SET _IOW(SERVO_MAGIC,2,int)
+
+
+#endif

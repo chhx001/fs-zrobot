@@ -1,0 +1,1 @@
+cmd_/home/xup/work/zrobot/armonly/drivers/gpio/gpio_driver.ko := arm-xilinx-linux-gnueabi-ld -EL -r  -T /home/xup/cross/linux-xup/scripts/module-common.lds --build-id  -o /home/xup/work/zrobot/armonly/drivers/gpio/gpio_driver.ko /home/xup/work/zrobot/armonly/drivers/gpio/gpio_driver.o /home/xup/work/zrobot/armonly/drivers/gpio/gpio_driver.mod.o

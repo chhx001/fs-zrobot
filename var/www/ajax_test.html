@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing</title>
+<script type="text/javascript">
+//alert('    ');
+</script>
+<script src="jquery-2.1.1.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+	var uarm_drag = false;
+	var ts = (new Date()).valueOf();
+	$("#panel").mousedown(function(e){
+		var x = Math.floor(e.pageX-$("#panel").offset().left - 150); 
+		var y = Math.floor($("#panel").offset().top + $("#panel").height() - e.pageY - 30 )
+		$("#content").text("x=" + y + "&y=" + x);
+		uarm_drag = true;
+	});
+
+	$("#panel").mousemove(function(e){
+		if(uarm_drag){
+			var x = Math.floor(e.pageX-$("#panel").offset().left - 150); 
+			var y = Math.floor($("#panel").offset().top + $("#panel").height() - e.pageY - 30 )
+			$("#content").text("x=" + y + "&y=" + x);
+			if((new Date()).valueOf() - ts > 300){
+				$.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+$("#content").text() + "&cmd=1",function(data,status){
+					alert("Status:"+status);
+				});
+			}
+
+		}
+	});
+
+	$(document).mouseup(function(e){
+		uarm_drag = false;
+		$.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+$("#content").text() + "&cmd=1",function(data,status){
+			alert("Status:"+status);
+		});
+
+	});
+	$("#drag").click(function(e){
+		uarm_drag = false;
+		$.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+$("#content").text() + "&cmd=18",function(data,status){
+			alert("Status:"+status);
+		});
+	});
+
+	$("#put").click(function(e){
+		uarm_drag = false;
+		$.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+$("#content").text() + "&cmd=19",function(data,status){
+			alert("Status:"+status);
+		});
+	});
+
+});
+</script>
+</head>
+<body>
+<h1 id="content">Test!!!!!</h1>
+<div id="panel" style="width:300px;height:150px;background-color:#888888;">
+</div>
+<button id="drag">drag</button>
+<button id="put">put</button>
+</body>
+
+
+
+</html>

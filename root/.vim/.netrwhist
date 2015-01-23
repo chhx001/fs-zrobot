@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/var/www'
+let g:netrw_dirhist_2='/root/tcp_server'
+let g:netrw_dirhist_3='/var'
+let g:netrw_dirhist_4='/var/www/cgi-bin'
+let g:netrw_dirhist_5='/var/www/cgi-bin/close_loop_CGI'
+let g:netrw_dirhist_6='/root/apps/chenhaoxing'

@@ -1,0 +1,94 @@
+table{
+    border-collapse:collapse;
+}
+
+table tr,table td{
+    border: solid 2px;
+    text-align:center;
+}
+
+.textcenter{
+    text-align:center;
+}
+
+.floatleft{
+    float:left;
+}
+
+.car_button{
+    font:20px;
+    width:80px;
+    height:40px;
+}
+
+.arm_button_tr{
+    height:40px;
+}
+
+.arm_button{
+    font:20px;
+    width:100px;
+    height:40px;
+}
+
+.margincenter{
+    margin:0 auto;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+
+#main{
+    width:1024px;
+    margin:0 auto;
+}
+
+#title{
+    margin:20 0 auto;
+}
+
+#control_box{
+    overflow:hidden;
+    text-align:center;
+}
+
+#control_car{
+    float:left;
+    padding:5px;
+    margin:0 10px;
+    border:solid 1px;
+    margin-left:100px;
+}
+
+#car_control_table{
+    margin-top:20px;
+}
+
+#control_arm{
+    padding:5px;
+    margin:0 10px;
+    border:solid 1px;
+}
+
+#arm_panel{
+    width:400px;
+    height:250px;
+    background-color:#888888;
+    border:solid 2px;
+    border-right:0px;
+    cursor:pointer;
+}
+
+#arm_table{
+    height:254px;
+    width:100px;
+}
+
+#video_box{
+    margin:10px;
+}
+

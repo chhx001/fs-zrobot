@@ -1,0 +1,66 @@
+#include "iic.h"
+#include "zrarm.h"
+#include "uarm_cmd.h"
+#include <unistd.h>
+
+static int tfd = 0;
+
+#define CONSTRAIN(x,min,max) (x)=((x)>(max))?(max):((x)<(min))?(min):(x);
+
+//**************************************
+//ÏòI2CÉè±¸Ð´ÈëÒ»¸ö×Ö½ÚÊý¾Ý
+//**************************************
+void Single_WriteI2C(unsigned char REG_Address,unsigned char REG_data)
+{
+	CONSTRAIN(REG_Address,0,3);
+    int retn = 0;
+    char sbuf[128];
+    sprintf(sbuf,"/sys/bus/i2c/devices/0-%04x/eeprom",EEPROM_ADDR+REG_Address);
+	tfd=open(sbuf,O_RDWR); 
+	if(tfd < 0){
+		printf("device:%s open failed!\n",sbuf);
+		exit(1);
+	}
+	lseek(tfd,0x10,SEEK_SET);
+	write(tfd,&REG_data,1);
+	close(tfd);
+
+}
+//**************************************
+//´ÓI2CÉè±¸¶ÁÈ¡Ò»¸ö×Ö½ÚÊý¾Ý 
+//**************************************
+unsigned char Single_ReadI2C(unsigned char REG_Address)
+{
+	CONSTRAIN(REG_Address,0,3);
+    int retn = 0;
+    char sbuf[128];
+    char REG_data;
+    sprintf(sbuf,"/sys/bus/i2c/devices/0-%04x/eeprom",EEPROM_ADDR+REG_Address);
+	tfd=open(sbuf,O_RDWR); 
+	if(tfd < 0){
+		printf("device:%s open failed!\n",sbuf);
+		exit(1);
+	}
+	lseek(tfd,0x10,SEEK_SET);
+	write(tfd,&REG_data,1);
+	close(tfd);
+	return REG_data;
+}
+unsigned char eeprom_read(unsigned char REG_Address)
+{
+	return Single_ReadI2C(REG_Address);
+}
+
+void eeprom_write(unsigned char REG_Address,unsigned char REG_data)
+{
+	Single_WriteI2C( REG_Address, REG_data);
+}
+//void print(char *str);
+int iic_io_init()
+{
+
+    return 1;
+}
+
+
+

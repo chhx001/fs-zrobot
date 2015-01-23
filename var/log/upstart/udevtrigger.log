@@ -1,0 +1,14 @@
+
+udevadm settle - timeout of 120 seconds reached, the event queue contains:
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1 (671)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3 (672)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0 (673)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/input/input0 (674)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/input/input0/event0 (675)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/video4linux/video0 (676)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1 (677)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.2 (678)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.3/1-1.3:1.3 (679)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.4 (680)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1.4/1-1.4:1.0 (681)
+  /sys/devices/amba.0/e0002000.ps7-usb/xusbps-ehci.0/usb1/1-1/1-1:1.0 (682)

@@ -1,0 +1,13 @@
+#ifndef WHEEL_CMD_H_INCLUDED
+#define WHEEL_CMD_H_INCLUDED
+
+#define WHEEL_MAGIC 'w'
+#define WHEEL_INIT  _IOW(WHEEL_MAGIC,0,int)
+#define WHEEL_L_SET _IOW(WHEEL_MAGIC,1,int)
+#define WHEEL_R_SET _IOW(WHEEL_MAGIC,2,int)
+#define WHEEL_L_GET _IOR(WHEEL_MAGIC,3,int)
+#define WHEEL_R_GET _IOR(WHEEL_MAGIC,4,int)
+
+
+
+#endif

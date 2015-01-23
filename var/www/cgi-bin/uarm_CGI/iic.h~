@@ -1,0 +1,36 @@
+#ifndef IIC_H_INCLUDED
+#define IIC_H_INCLUDED
+
+/****************** Include Files ********************/
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+
+#define delay_us_iic() usleep(2500)
+#define delayms(x) usleep(x*1000)
+
+#define SCL_CHANNEL 1
+#define SDA_CHANNEL 2
+
+#define SCL1 tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SCL,1); close(tfd); 
+#define SCL0 tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SCL,0); close(tfd); 
+#define SCLOUT tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SCL_DIR,0); close(tfd); 
+
+#define SDA1 tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SDA,1); close(tfd); 
+#define SDA0 tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SDA,0); close(tfd); 
+#define SDAIN tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SDA_DIR,1); close(tfd); 
+#define SDAOUT tfd=open(ZRARM_UARM_DEV,O_RDWR); ioctl(tfd,UARM_IIC_SDA_DIR,0); close(tfd); 
+
+#define SDADATA sdadata()
+
+#define	SlaveAddress 0xa0//IICÐ´ÈëÊ±µÄµØÖ·×Ö½ÚÊý¾Ý£¬+1Îª¶ÁÈ¡
+
+unsigned char eeprom_read(unsigned char REG_Address);
+void eeprom_write(unsigned char REG_Address,unsigned char REG_data);
+
+int iic_io_init();
+
+#endif // _MY_IIC_H
+

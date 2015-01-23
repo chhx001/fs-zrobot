@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( code2d )
+find_package( OpenCV REQUIRED )
+FILE(GLOB CPP_SOURCE "./*.cpp" )
+add_executable( code2d ${CPP_SOURCE} )
+target_link_libraries( code2d ${OpenCV_LIBS} )

@@ -1,0 +1,204 @@
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Linux version 3.6.0-digilent-13.01-00002-g06b3889-dirty (root@xup-VirtualBox) (gcc version 4.7.2 (Sourcery CodeBench Lite 2012.09-104) ) #45 SMP PREEMPT Wed Jan 14 14:07:28 CST 2015
+[    0.000000] CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: Xilinx Zynq Platform, model: Xilinx Zynq Platform
+[    0.000000] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000] On node 0 totalpages: 131072
+[    0.000000] free_area_init_node: node 0, pgdat c0570100, node_mem_map c058a000
+[    0.000000]   Normal zone: 1024 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 130048 pages, LIFO batch:31
+[    0.000000] PERCPU: Embedded 7 pages/cpu @c0991000 s6976 r8192 d13504 u32768
+[    0.000000] pcpu-alloc: s6976 r8192 d13504 u32768 alloc=8*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: console=ttyPS0,115200 root=/dev/mmcblk0p2 rw earlyprintk rootfstype=ext4 rootwait devtmpfs.mount=1 coherent_pool=48M
+[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 512MB = 512MB total
+[    0.000000] Memory: 513996k/513996k available, 10292k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xe0800000 - 0xfd000000   ( 456 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xe0000000   ( 512 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0503da8   (5104 kB)
+[    0.000000]       .init : 0xc0504000 - 0xc052ab40   ( 155 kB)
+[    0.000000]       .data : 0xc052c000 - 0xc0572680   ( 282 kB)
+[    0.000000]        .bss : 0xc05726a4 - 0xc058993c   (  93 kB)
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	Dump stacks of tasks blocking RCU-preempt GP.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+[    0.000000] NR_IRQS:512
+[    0.000000] Zynq clock init
+[    0.000000] xlnx,ps7-ttc-1.00.a #0 at 0xe0800000, irq=43
+[    0.000000] sched_clock: 32 bits at 100 Hz, resolution 10000000ns, wraps every 4294967286ms
+[    0.000000] Console: colour dummy device 80x30
+[    0.040000] Calibrating delay loop... 1292.69 BogoMIPS (lpj=6463488)
+[    0.040000] pid_max: default: 32768 minimum: 301
+[    0.040000] Mount-cache hash table entries: 512
+[    0.040000] CPU: Testing write buffer coherency: ok
+[    0.040000] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.040000] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+[    0.040000] Setting up static identity map for 0x3945e0 - 0x394614
+[    0.040000] L310 cache controller enabled
+[    0.040000] l2x0: 8 ways, CACHE_ID 0x410000c8, AUX_CTRL 0x72360000, Cache size: 524288 B
+[    0.080000] Map SLCR registers
+[    0.080000] CPU1: Booted secondary processor
+[    0.170000] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.170000] Brought up 2 CPUs
+[    0.170000] SMP: Total of 2 processors activated (2591.94 BogoMIPS).
+[    0.170000] devtmpfs: initialized
+[    0.170000] NET: Registered protocol family 16
+[    0.260000] DMA: preallocated 49152 KiB pool for atomic coherent allocations
+[    0.270000] xgpiops e000a000.ps7-gpio: gpio at 0xe000a000 mapped to 0xe380a000
+[    0.270000] registering platform device 'pl330' id 0
+[    0.270000] registering platform device 'arm-pmu' id 0
+[    0.270000] registering platform device 'zynq-dvfs' id 0
+[    0.270000] 
+[    0.270000] ###############################################
+[    0.270000] #                                             #
+[    0.270000] #                Board ZED Init               #
+[    0.270000] #                                             #
+[    0.270000] ###############################################
+[    0.270000] 
+[    0.270000] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.270000] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.300000] xslcr xslcr.0: at 0xF8000000 mapped to 0xF8000000
+[    0.310000] bio: create slab <bio-0> at 0
+[    0.310000] XGpio: /amba@0/gpio@41230000: registered, base is 255
+[    0.310000] XGpio: /amba@0/gpio@41230008: dual channel registered, base is 254
+[    0.310000] XGpio: /amba@0/gpio@41240000: registered, base is 253
+[    0.310000] XGpio: /amba@0/gpio@41220000: registered, base is 231
+[    0.320000] SCSI subsystem initialized
+[    0.320000] usbcore: registered new interface driver usbfs
+[    0.320000] usbcore: registered new interface driver hub
+[    0.320000] usbcore: registered new device driver usb
+[    0.320000] Linux video capture interface: v2.00
+[    0.320000] Advanced Linux Sound Architecture Driver Version 1.0.25.
+[    0.320000] ------------[ cut here ]------------
+[    0.320000] WARNING: at net/wireless/reg.c:412 regulatory_init+0x8c/0x130()
+[    0.320000] db.txt is empty, you should update it...
+[    0.320000] Modules linked in:
+[    0.320000] [<c001343c>] (unwind_backtrace+0x0/0xe0) from [<c001f69c>] (warn_slowpath_common+0x4c/0x64)
+[    0.320000] [<c001f69c>] (warn_slowpath_common+0x4c/0x64) from [<c001f734>] (warn_slowpath_fmt+0x2c/0x3c)
+[    0.320000] [<c001f734>] (warn_slowpath_fmt+0x2c/0x3c) from [<c051eef0>] (regulatory_init+0x8c/0x130)
+[    0.320000] [<c051eef0>] (regulatory_init+0x8c/0x130) from [<c051edf8>] (cfg80211_init+0x54/0xc0)
+[    0.320000] [<c051edf8>] (cfg80211_init+0x54/0xc0) from [<c0008524>] (do_one_initcall+0x90/0x160)
+[    0.320000] [<c0008524>] (do_one_initcall+0x90/0x160) from [<c05048f4>] (kernel_init+0xf8/0x1b8)
+[    0.320000] [<c05048f4>] (kernel_init+0xf8/0x1b8) from [<c000e604>] (kernel_thread_exit+0x0/0x8)
+[    0.320000] ---[ end trace 72480756b3a4731a ]---
+[    0.320000] cfg80211: Calling CRDA to update world regulatory domain
+[    0.320000] Switching to clocksource xttcpss_timer1
+[    0.330000] NET: Registered protocol family 2
+[    0.330000] TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.330000] TCP bind hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.330000] TCP: Hash tables configured (established 16384 bind 16384)
+[    0.330000] TCP: reno registered
+[    0.330000] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.330000] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.330000] NET: Registered protocol family 1
+[    0.330000] pl330 dev 0 probe success
+[    0.340000] msgmni has been set to 1003
+[    0.340000] io scheduler noop registered
+[    0.340000] io scheduler deadline registered
+[    0.340000] io scheduler cfq registered (default)
+[    0.340000] dma-pl330: probe of f8004000.ps7-dma failed with error -2
+[    0.340000] dma-pl330: probe of f8003000.ps7-dma failed with error -2
+[    0.340000] e0001000.serial: ttyPS0 at MMIO 0xe0001000 (irq = 82) is a xuartps
+[    0.950000] console [ttyPS0] enabled
+[    0.960000] UART1 detected
+[    0.960000] e0000000.serial1: ttyPS1 at MMIO 0xe0000000 (irq = 59) is a xuartps
+[    0.970000] xdevcfg f8007000.ps7-dev-cfg: ioremap f8007000 to e3812000 with size 1000
+[    0.980000] [drm] Initialized drm 1.1.0 20060810
+[    0.990000] brd: module loaded
+[    1.000000] loop: module loaded
+[    1.010000] libphy: XEMACPS mii bus: probed
+[    1.010000] xemacps e000b000.ps7-ethernet: invalid address, use assigned
+[    1.020000] xemacps e000b000.ps7-ethernet: MAC updated 12:4f:62:92:f2:e7
+[    1.030000] xemacps e000b000.ps7-ethernet: pdev->id -1, baseaddr 0xe000b000, irq 54
+[    1.040000] usbcore: registered new interface driver rtl8192cu
+[    1.040000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.050000] usb_hcd_xusbps_probe: No OTG assigned!
+[    1.050000] usb_hcd_xusbps_probe: OTG now assigned!
+[    1.060000] xusbps-ehci xusbps-ehci.0: Xilinx PS USB EHCI Host Controller
+[    1.070000] xusbps-ehci xusbps-ehci.0: new USB bus registered, assigned bus number 1
+[    1.100000] xusbps-ehci xusbps-ehci.0: irq 53, io mem 0x00000000
+[    1.120000] xusbps-ehci xusbps-ehci.0: USB 2.0 started, EHCI 1.00
+[    1.120000] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    1.130000] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.140000] usb usb1: Product: Xilinx PS USB EHCI Host Controller
+[    1.140000] usb usb1: Manufacturer: Linux 3.6.0-digilent-13.01-00002-g06b3889-dirty ehci_hcd
+[    1.150000] usb usb1: SerialNumber: xusbps-ehci.0
+[    1.150000] hub 1-0:1.0: USB hub found
+[    1.160000] hub 1-0:1.0: 1 port detected
+[    1.160000] Initializing USB Mass Storage driver...
+[    1.170000] usbcore: registered new interface driver usb-storage
+[    1.170000] USB Mass Storage support registered.
+[    1.180000] usbcore: registered new interface driver usbserial
+[    1.180000] usbcore: registered new interface driver usbserial_generic
+[    1.190000] USB Serial support registered for generic
+[    1.200000] usbserial: USB Serial Driver core
+[    1.200000] usbcore: registered new interface driver ch341
+[    1.210000] USB Serial support registered for ch341-uart
+[    1.210000] usbcore: registered new interface driver empeg
+[    1.220000] USB Serial support registered for empeg
+[    1.220000] usbcore: registered new interface driver ftdi_sio
+[    1.230000] USB Serial support registered for FTDI USB Serial Device
+[    1.230000] ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+[    1.240000] mousedev: PS/2 mouse device common for all mice
+[    1.250000] at24 0-0050: 1024 byte 24c08 EEPROM, writable, 1 bytes/write
+[    1.250000] gspca_main: v2.14.0 registered
+[    1.260000] usbcore: registered new interface driver uvcvideo
+[    1.260000] USB Video Class driver (1.1.1)
+[    1.270000] sdhci: Secure Digital Host Controller Interface driver
+[    1.270000] sdhci: Copyright(c) Pierre Ossman
+[    1.280000] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.290000] Registered led device: mmc0::
+[    1.330000] mmc0: SDHCI controller on e0100000.ps7-sdio [e0100000.ps7-sdio] using ADMA
+[    1.340000] usbcore: registered new interface driver usbhid
+[    1.340000] usbhid: USB HID core driver
+[    1.350000] TCP: cubic registered
+[    1.350000] NET: Registered protocol family 17
+[    1.350000] lib80211: common routines for IEEE802.11 drivers
+[    1.360000] lib80211_crypt: registered algorithm 'NULL'
+[    1.360000] lib80211_crypt: registered algorithm 'WEP'
+[    1.360000] lib80211_crypt: registered algorithm 'CCMP'
+[    1.360000] lib80211_crypt: registered algorithm 'TKIP'
+[    1.360000] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    1.370000] Registering SWP/SWPB emulation handler
+[    1.370000] registered taskstats version 1
+[    1.380000] mmc0: new high speed SDHC card at address aaaa
+[    1.380000] drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    1.390000] ALSA device list:
+[    1.390000]   No soundcards found.
+[    1.400000] mmcblk0: mmc0:aaaa SS08G 7.40 GiB 
+[    1.400000]  mmcblk0: p1 p2
+[    1.440000] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    1.450000] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    1.450000] devtmpfs: mounted
+[    1.460000] Freeing init memory: 152K
+[    1.640000] init: Failed to create pty - disabling logging for job
+[    1.650000] init: Temporary process spawn error: No space left on device
+[    1.670000] init: Failed to create pty - disabling logging for job
+[    1.680000] init: Temporary process spawn error: No space left on device
+[    1.700000] init: Failed to create pty - disabling logging for job
+[    1.700000] init: Temporary process spawn error: No space left on device
+[    1.710000] init: Failed to create pty - disabling logging for job
+[    1.720000] init: Temporary process spawn error: No space left on device
+[    1.810000] init: ureadahead main process (653) terminated with status 5
+[    3.590000] init: Failed to create pty - disabling logging for job
+[    3.590000] init: Temporary process spawn error: No space left on device
+[    3.620000] init: Failed to create pty - disabling logging for job
+[    3.620000] init: Temporary process spawn error: No space left on device
+[    3.650000] init: Failed to create pty - disabling logging for job
+[    3.660000] init: Temporary process spawn error: No space left on device
+[    4.120000] udevd[744]: starting version 175
+[    5.030000] init: udev-fallback-graphics main process (1222) terminated with status 1
+[    5.140000] init: plymouth main process (654) killed by SEGV signal
+[    5.150000] init: plymouth-splash main process (1237) terminated with status 2
+[    5.210000] init: failsafe main process (1244) killed by TERM signal

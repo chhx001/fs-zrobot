@@ -1,0 +1,4 @@
+[https]
+	proxy = http://gateway:8080
+[http]
+	proxy = http://gateway:8080

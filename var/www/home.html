@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <title>ZRobot car Control Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script src="jquery-2.1.1.min.js">
+            </script>
+        <script type="text/javascript">
+        function setPosText(x,y){
+            $("#arm_x").text(x);
+            $("#arm_y").text(y);
+        }
+        
+        function getSendPara(){
+            return "x=" + $("#arm_y").text() + "&y=" + $("#arm_x").text();
+        }
+            
+            $(function(){
+              var uarm_drag = false;
+              var last_drag = 0;
+              var last_put = 0;
+              var ts = (new Date()).valueOf();
+              
+              $("#arm_panel").mousedown(function(e){
+                                    var x = Math.floor(e.pageX-$("#arm_panel").offset().left - 200);
+                                    var y = Math.floor($("#arm_panel").offset().top + $("#arm_panel").height() - e.pageY - 30 );
+                                    setPosText(x,y);
+                                    uarm_drag = true;
+                                    });
+              
+              $("#arm_panel").mousemove(function(e){
+                                    if(uarm_drag){
+                                    var x = Math.floor(e.pageX-$("#arm_panel").offset().left - 200);
+                                    var y = Math.floor($("#arm_panel").offset().top + $("#arm_panel").height() - e.pageY - 30 )
+                                    setPosText(x,y);
+                                    if((new Date()).valueOf() - ts > 500){
+                                    $.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+ getSendPara() + "&cmd=1",function(data,status){
+                                          });
+                                    }
+                                    
+                                    }
+                                    });
+              
+              $(document).mouseup(function(e){
+                                  uarm_drag = false;
+                                  $.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+getSendPara() + "&cmd=1",function(data,status){
+                                        });
+                                  
+                                  });
+              $("#arm_catch").click(function(e){
+                               if((new Date()).valueOf() - last_drag > 2000){
+                               last_drag = new Date().valueOf();
+                               $.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+ getSendPara() + "&cmd=18",function(data,status){
+                                     });
+                               }
+                               });
+              
+              $("#arm_release").click(function(e){
+                              if((new Date()).valueOf() - last_put > 2000){
+                              last_put = new Date().valueOf();
+                              $.get("/cgi-bin/uarm_CGI/uarm_move.cgi?"+ getSendPara() + "&cmd=19",function(data,status){
+                                    });
+                              }
+                              
+                              });
+              $("#car_front").click(function(e){
+                                    $.get("/cgi-bin/smart_car_front.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_left").click(function(e){
+                                    $.get("/cgi-bin/smart_car_left.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_stop").click(function(e){
+                                    $.get("/cgi-bin/smart_car_stop.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_right").click(function(e){
+                                    $.get("/cgi-bin/smart_car_right.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_back").click(function(e){
+                                    $.get("/cgi-bin/smart_car_back.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_reserved_1").click(function(e){
+                                    $.get("/cgi-bin/smart_car_stop.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_reserved_2").click(function(e){
+                                    $.get("/cgi-bin/smart_car_stop.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_reserved_3").click(function(e){
+                                    $.get("/cgi-bin/smart_car_stop.cgi",function(data,status){
+                                          });
+                                    });
+              $("#car_reserved_4").click(function(e){
+                                    $.get("/cgi-bin/smart_car_stop.cgi",function(data,status){
+                                          });
+                                    });
+              
+              });
+            </script>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+    </head>
+    <body>
+        <div id="main" class="MainBox">
+            <div id="title" class="textcenter">
+                <h1>ZRobot Kit Web Control Demo </h1>
+                <hr />
+            </div>
+            <div id="control_box">
+                <div id="control_car" class="floatleft">
+                    <span class="textcenter"><h3>Car Control Panel</h3></span>
+                    <table id="car_control_table">
+                        <tr>
+                            <td>
+                                <button id="car_reserved_1" class="car_button " >Reserved_1</button>
+                            </td>
+                            <td>
+                                <button id="car_front" class="car_button">Front</button>
+                            </td>
+                            <td>
+                                <button id="car_reserved_2" class="car_button " >Reserved_2</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="car_left" class="car_button" >Left</button>
+                            </td>
+                            <td>
+                                <button id="car_stop" class="car_button" >Stop</button>
+                            </td>
+                            <td>
+                                <button id="car_right" class="car_button" >Right</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="car_reserved_3" class="car_button" >Reserved_3</button>
+                            </td>
+                            <td>
+                                <button id="car_back" class="car_button">Back</button>
+                            </td>
+                            <td>
+                                <button id="car_reserved_4" class="car_button" >Reserved_4</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div> <!--control_car-->
+                <div id="control_arm" class="floatleft">
+                    <span class="textcenter"><h3>Arm Control Panel</h3></span>
+                    <div>
+                        <div id="arm_panel" class="floatleft"></div>
+                        <table id="arm_table" class="floatleft">
+                            <tr>
+                                <td>
+                                    <span>x:<span id="arm_x" class="arm_data">0</span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>y:<span id="arm_y" class="arm_data">100</span></span>
+                                </td>
+                            </tr>
+                            <tr class="arm_button_tr">
+                                <td><button id="arm_catch" class="arm_button">Catch</button></td>
+                            </tr>
+                            <tr class="arm_button_tr">
+                                <td><button id="arm_release" class="arm_button">Release</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div><!--control_arm-->
+            </div><!--control_box-->
+            <div id="video_box" class="textcenter">
+                <!--[if IE]>
+                <applet code="com.charliemouse.cambozola.Viewer" archive="./cambozola.jar" width="640" height="480">
+                    <param name="url" value="http://192.168.0.1:8080/?action=stream"/>
+                    <param name="watermarks" value="/favicon.png|left,top"/>
+                </applet>
+                <![endif]-->
+                <!--[if !IE]><!-->
+                <img alt="can not get video data,Maybe the mjpg-streamer is not running or the data source address is incorrect." src="http://192.168.0.1:8080/?action=stream" width=640 height="480" />
+                <!--<![endif]-->
+            </div>
+        </div><!--main-->
+    </body>
+
+</html>
