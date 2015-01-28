@@ -1,6 +1,6 @@
 #include "xil_io.h"
 #include "smart_car_move.h"
-
+#include "zrcar.h"
 #define AXI_GPIO_BASEADDR 0x41200000
 
 #define XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR 0x43C01000
@@ -36,7 +36,8 @@ void init_LED()
 
 void smart_car_init()
 {
-//MOTOR Controller IP Initialize
+	zrcar_wheel_init(ZRCAR_WHEEL_DEV);
+/*//MOTOR Controller IP Initialize
     Xil_Out32((XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR) + (0 * 4), (0x0));
     Xil_Out32((XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR) + (1 * 4), (-0)); //in_speed_set
     Xil_Out32((XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR) + (2 * 4), (1 << 8)); //in_kp_param
@@ -76,7 +77,7 @@ void smart_car_init()
     Xil_Out32((XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR) + (0 * 4), (0x01));
 
 	Xil_Out32(AXI_GPIO_BASEADDR+12, 0x0);
-	Xil_Out32(AXI_GPIO_BASEADDR+8, 0x0);
+	Xil_Out32(AXI_GPIO_BASEADDR+8, 0x0);*/
 }
 
 // speed 0 ~ +45
@@ -88,8 +89,10 @@ void set_car_front(int speed)
 		Xil_Out32(AXI_GPIO_BASEADDR+8, 0xf);
 		
 	//set the four motor's speed
-	Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,-speed);
-	Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,-speed);
+	//Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,-speed);
+	//Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,-speed);
+	zrcar_wheel_l_set(speed);
+	zrcar_wheel_r_set(speed);
 }
 
 // speed 0 ~ +45
@@ -98,24 +101,30 @@ void set_car_back(int speed)
 	//set the for motor direction to be 0
 	Xil_Out32(AXI_GPIO_BASEADDR+8, 1<<1);
 	//set the four motor's speed
-	Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,speed);
-	Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,speed);
+	zrcar_wheel_l_set(-speed);
+	zrcar_wheel_r_set(-speed);
+	//Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,speed);
+	//Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,speed);
 }
 
 //speed 0 ~ +45
 void set_car_right(int speed)
 {
 	Xil_Out32(AXI_GPIO_BASEADDR+8, 1<<3);
-	Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,-speed);
-    Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,speed);
+	zrcar_wheel_l_set(speed);
+	zrcar_wheel_r_set((int)(speed * 0.33));
+	//Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,-speed);
+    //Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,speed);
 }
 
 //speed 0 ~ +45
 void set_car_left(int speed)
 {
 	Xil_Out32(AXI_GPIO_BASEADDR+8, 1<<2);
-	Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,speed);
-    Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,-speed);
+	zrcar_wheel_l_set((int)(speed * 0.33));
+	zrcar_wheel_r_set(speed);
+	//Xil_Out32(XPAR_MOTOR_CTRL_L_MOTOR_S_AXI_BASEADDR+4,speed);
+    //Xil_Out32(XPAR_MOTOR_CTRL_R_MOTOR_S_AXI_BASEADDR+4,-speed);
 }
 
 
