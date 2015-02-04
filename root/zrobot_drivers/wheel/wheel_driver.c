@@ -51,6 +51,7 @@ int wheel_r_speed_get(void);
 
 void wheel_l_speed_set(int speed)
 {
+	printk("set l speed:%d\n",-speed);
 	iowrite32(-speed,wheel_l_baseaddr + SPEED_SET_OFFSET);
 }
 

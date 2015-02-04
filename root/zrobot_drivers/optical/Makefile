@@ -1,7 +1,8 @@
 ifneq ($(KERNELRELEASE),)
 obj-m := optical_driver.o
 else
-KERNEL_DIR := /home/xup/cross/linux-zybo/linux-digilent
+#KERNEL_DIR := /home/xup/cross/linux-zybo/linux-digilent
+KERNEL_DIR := /home/xup/cross/linux-xup
 PWD := $(shell pwd)
 all:
 	$(MAKE) -C $(KERNEL_DIR) SUBDIRS=$(PWD) modules ARCH=arm

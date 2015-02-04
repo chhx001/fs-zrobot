@@ -14,7 +14,7 @@ else
 	exit 1
 fi
 
-./root/zrobot_drivers/arm_drv.sh
+./root/zrobot_drivers/car_drv.sh
 
 #insmod /root/zrobot_drivers/optical_driver.ko
 #insmod /root/zrobot_drivers/wheel_driver.ko
