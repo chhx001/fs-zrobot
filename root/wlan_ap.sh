@@ -13,6 +13,7 @@ if [ "$ex_8192"x == "x" ]
 then
 	echo wifi hardware not detected! please make sure you inserted it!
 	echo If you have inserted it ,please replug it!
+	exec ~/tictactoe/tictactoe
 	exit 1
 else
 	echo wifi rtl8192cu detected!

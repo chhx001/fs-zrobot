@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="tictactoe" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/tictactoe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/tictactoe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="PlayGameMain.cpp" />
+		<Unit filename="TicTacToe.h" />
+		<Unit filename="aruco.h" />
+		<Unit filename="arucofidmarkers.cpp" />
+		<Unit filename="arucofidmarkers.h" />
+		<Unit filename="board.cpp" />
+		<Unit filename="board.h" />
+		<Unit filename="boarddetector.cpp" />
+		<Unit filename="boarddetector.h" />
+		<Unit filename="cameraparameters.cpp" />
+		<Unit filename="cameraparameters.h" />
+		<Unit filename="codeRecog2D.h" />
+		<Unit filename="cvdrawingutils.cpp" />
+		<Unit filename="cvdrawingutils.h" />
+		<Unit filename="exports.h" />
+		<Unit filename="marker.cpp" />
+		<Unit filename="marker.h" />
+		<Unit filename="markerdetector.cpp" />
+		<Unit filename="markerdetector.h" />
+		<Unit filename="uArmMovements.cpp" />
+		<Unit filename="uArmMovements.h" />
+		<Unit filename="uarm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="uarm.h" />
+		<Unit filename="uarmctrl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="uarmctrl.h" />
+		<Unit filename="xil_io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xil_io.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
