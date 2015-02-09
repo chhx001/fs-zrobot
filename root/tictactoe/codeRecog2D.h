@@ -53,7 +53,7 @@ public:
 CodeRecog2D(double markerSize):markerSize(markerSize){
 
 	//read camera parameter
-    CamParam.readFromXMLFile("camera.yml");
+    CamParam.readFromXMLFile("/root/tictactoe/camera.yml");
 
 	// non-pyrdown
 	MDetector.pyrDown(0);
@@ -72,7 +72,7 @@ CodeRecog2D(double markerSize):markerSize(markerSize){
 CodeRecog2D(double markerSize,int speed):markerSize(markerSize), speed(speed){
 
 	//read camera parameter
-    CamParam.readFromXMLFile("camera.yml");
+    CamParam.readFromXMLFile("/root/tictactoe/camera.yml");
 
 	// non-pyrdown
 	MDetector.pyrDown(speed);
